@@ -1,0 +1,13 @@
+Proyectos con bandera de ikurriña:
+
+https://multilingual-angular.netlify.app/
+http://txemaserrano.com/angular/googlemaps/centros/
+http://txemaserrano.com/googleMaps/luxury/
+http://txemaserrano.com/angular/urkatua/
+http://txemaserrano.com/angular/googlemaps/centros/
+http://txemaserrano.com/angular/openlayer/bestfit/
+http://txemaserrano.com/angular/letratamusika/
+
+https://multilingual-react.netlify.app/
+
+https://multilingual-vue.netlify.app/

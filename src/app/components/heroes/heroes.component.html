@@ -1,0 +1,64 @@
+<div style="position: relative;">
+    <app-language-selector></app-language-selector>
+  
+    <h1>{{ heroesTitle }}</h1>
+    <hr>
+  
+    <div class="row">
+        <div class="col text-right">
+            <button routerLink="/heroe/nuevo" class="btn btn-primary">
+                <i class="fa fa-plus"></i>
+                {{ heroesAdd }}
+            </button>
+        </div>
+    </div>
+  
+    <table *ngIf="!cargando" class="table mt-3 animated fadeIn faster">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{{ tableNumber }}</th>
+                <th scope="col">{{ tableName }}</th>
+                <th scope="col">{{ tablePower }}</th>
+                <th scope="col">{{ tableStatus }}</th>
+                <th scope="col">{{ tableTools }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let heroe of heroes; let i = index">
+                <th scope="row">{{ i+1 }}</th>
+                <td>{{ heroe.nombre }}</td>
+                <td>{{ heroe.poder }}</td>
+                <td>
+                    <label *ngIf="heroe.vivo" class="badge badge-success">{{ t('status.alive') }}</label>
+                    <label *ngIf="!heroe.vivo" class="badge badge-danger">{{ t('status.dead') }}</label>
+                </td>
+                <td>
+                    <button class="btn btn-info mr-1" [routerLink]="['/heroe',heroe.id]">
+                        <i class="fa fa-pen"></i>
+                    </button>
+  
+                    <button class="btn btn-danger" (click)="borrarHeroe(heroe, i)">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  
+    <div *ngIf="!cargando && heroes.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">{{ t('heroes.noRecords') }}</h4>
+        <p>
+            <i class="fa fa-exclamation fa-2x"></i>
+        </p>
+    </div>
+  
+    <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn">
+        <h4 class="alert-heading">{{ t('heroes.loading') }}</h4>
+        <p>
+            <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0">
+            {{ t('heroes.wait') }}
+        </p>
+    </div>
+</div>
